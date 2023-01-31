@@ -25,3 +25,12 @@ md5sum * | sort | awk 'BEGIN{lasthash = ""} $1 == lasthash {print $2} {lasthash 
 ```bash
 md5 -r * | sort | awk 'BEGIN{lasthash = ""} $1 == lasthash {print $2} {lasthash = $1}' | xargs rm
 ```
+
+## Renaming multiple files
+
+Renaming files in a folder to sequential zero padded numbers
+
+🐧|🍏:
+```bash
+ls *.jpeg | cat -n | while read n f; do mv "$f" `printf "%03d.jpg" $n`; done
+```
