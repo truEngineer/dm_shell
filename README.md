@@ -32,14 +32,14 @@ Renaming files in a folder to sequential zero padded numbers.
 
 ```bash
 $ ls *.jpeg | cat -n
-     1	train_1.jpeg
-     2	train_2.jpeg
-     3	train_3.jpeg
-     4	train_3c.jpeg
-     5	train_4.jpeg
-     6	train_5.jpeg
-     7	train_5c.jpeg
-     8	train_5cc.jpeg
+     1	train_a.jpeg
+     2	train_b.jpeg
+     3	train_c.jpeg
+     4	train_d.jpeg
+     5	train_e.jpeg
+     6	train_f.jpeg
+     7	train_g.jpeg
+     8	train_h.jpeg
 $ ls *.jpeg | cat -n | while read n f; do mv "$f" `printf "%03d.jpg" $n`; done
 $ ls *.jpg
 001.jpg	002.jpg	003.jpg	004.jpg	005.jpg	006.jpg	007.jpg	008.jpg
@@ -49,5 +49,5 @@ A **backtick \`** is not a quotation sign! Everything you type between backticks
 
 🐧|🍏:
 ```bash
-ls *.jpeg | cat -n | while read n f; do mv "$f" `printf "%03d.jpg" $n`; done
+ls | cat -n | while read n f; do mv "$f" `printf "%03d.extension" $n`; done
 ```
