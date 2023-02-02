@@ -28,7 +28,24 @@ md5 -r * | sort | awk 'BEGIN{lasthash = ""} $1 == lasthash {print $2} {lasthash 
 
 ## Renaming multiple files
 
-Renaming files in a folder to sequential zero padded numbers
+Renaming files in a folder to sequential zero padded numbers.
+
+```bash
+$ ls *.jpeg | cat -n
+     1	train_1.jpeg
+     2	train_2.jpeg
+     3	train_3.jpeg
+     4	train_3c.jpeg
+     5	train_4.jpeg
+     6	train_5.jpeg
+     7	train_5c.jpeg
+     8	train_5cc.jpeg
+$ ls *.jpeg | cat -n | while read n f; do mv "$f" `printf "%03d.jpg" $n`; done
+$ ls *.jpg
+001.jpg	002.jpg	003.jpg	004.jpg	005.jpg	006.jpg	007.jpg	008.jpg
+```
+
+A **backtick \`** is not a quotation sign! Everything you type between backticks is evaluated (executed) by the shell before the main command (like `mv`), and the output of that execution is used by that command, just as if you'd type that output at that place in the command line.
 
 🐧|🍏:
 ```bash
