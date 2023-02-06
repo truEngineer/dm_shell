@@ -51,3 +51,5 @@ A **backtick \`** is not a quotation sign! Everything you type between backticks
 ```bash
 ls | cat -n | while read n f; do mv "$f" `printf "%03d.extension" $n`; done
 ```
+
+You can also use **$()** to nest expressions: `do mv "$f" $(printf "%03d.extension" $n)`.
