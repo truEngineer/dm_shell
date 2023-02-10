@@ -52,4 +52,4 @@ A **backtick \`** is not a quotation sign! Everything you type between backticks
 ls | cat -n | while read n f; do mv "$f" `printf "%03d.extension" $n`; done
 ```
 
-You can also use **$()** to nest expressions: `do mv "$f" $(printf "%03d.extension" $n)`.
+You can also use **$()** to nest expressions: `mv "$f" $(printf "%03d.extension" $n)`.
