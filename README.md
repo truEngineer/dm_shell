@@ -53,3 +53,13 @@ ls | cat -n | while read n f; do mv "$f" `printf "%03d.extension" $n`; done
 ```
 
 You can also use **$()** to nest expressions: `mv "$f" $(printf "%03d.extension" $n)`.
+
+<details>
+  <summary><b>$f</b> instead <b>"$f"</b>?</summary>
+  <b>$f</b> instead of <b>"$f"</b> fails when filename contains spaces!
+  The main difference is that the quoted version is not subject to field splitting by the shell.
+  With double quotes the outcome of the command expansion would be fed as one parameter to the source command. 
+  Without quotes it would be broken up into multiple parameters, depending on the value of IFS (internal field separator) which contains space, TAB and newline by default.
+  If the directory name does not contain such spaces then field splitting does not occur.
+  As a rule of thumb, it is best to use double quotes with command substitutions and variable expansions.
+</details>
