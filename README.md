@@ -28,7 +28,7 @@ md5 -r * | sort | awk 'BEGIN{lasthash = ""} $1 == lasthash {print $2} {lasthash 
 
 ## Renaming multiple files
 
-Renaming files in a folder to sequential zero padded numbers.
+Renaming files in a folder to sequential zero padded numbers (`printf` is used for padding).
 
 ```bash
 $ ls *.jpeg | cat -n
