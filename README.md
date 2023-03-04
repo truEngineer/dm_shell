@@ -63,3 +63,10 @@ You can also use **$()** to nest expressions: `mv "$f" $(printf "%03d.extension"
   If the directory name does not contain such spaces then field splitting does not occur.
   As a rule of thumb, it is best to use double quotes with command substitutions and variable expansions.
 </details>
+
+## Enter the matrix
+
+🐧|🍏:
+```bash
+perl -e '$|++; while (1) { print " ." x (rand(10) + 1), int(rand(2)) }'
+```
