@@ -66,7 +66,7 @@ You can also use **$()** to nest expressions: `mv "$f" $(printf "%03d.extension"
 
 ## Find files
 
-Find files in a date range.
+Find files modified on a specific date range.
 
 🐧|🍏:
 ```bash
