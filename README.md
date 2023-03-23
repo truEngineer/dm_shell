@@ -64,6 +64,22 @@ You can also use **$()** to nest expressions: `mv "$f" $(printf "%03d.extension"
   As a rule of thumb, it is best to use double quotes with command substitutions and variable expansions.
 </details>
 
+## Find files
+
+Find files in a date range.
+
+🐧|🍏:
+```bash
+find . -type f -newermt "2022-12-01" ! -newermt "2023-01-01"
+```
+
+Find ASCII files and extract IP addresses.
+
+🐧|🍏:
+```bash
+find . -type f -exec grep -Iq . {} \; -exec grep -oE "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" {} /dev/null \;
+```
+
 ## Enter the matrix
 
 🐧|🍏:
