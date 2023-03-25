@@ -64,7 +64,7 @@ You can also use **$()** to nest expressions: `mv "$f" $(printf "%03d.extension"
   As a rule of thumb, it is best to use double quotes with command substitutions and variable expansions.
 </details>
 
-## Find files
+## Finding specific files and data inside files
 
 Find files modified on a specific date range.
 
@@ -78,6 +78,13 @@ Find ASCII files and extract IP addresses.
 🐧|🍏:
 ```bash
 find . -type f -exec grep -Iq . {} \; -exec grep -oE "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" {} /dev/null \;
+```
+
+Search recursively to find a word or phrase in certain file types, such as C code.
+
+🐧|🍏:
+```bash
+find . -name "*.[ch]" -exec  grep -i -H "search phrase" {} \;
 ```
 
 ## Enter the matrix
