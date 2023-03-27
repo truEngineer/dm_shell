@@ -87,6 +87,13 @@ Search recursively to find a word or phrase in certain file types, such as C cod
 find . -name "*.[ch]" -exec  grep -i -H "search phrase" {} \;
 ```
 
+Find files in directory containing text.
+
+🐧|🍏:
+```bash
+grep -lir "some text" ./directory/*
+```
+
 ## Enter the matrix
 
 🐧|🍏:
