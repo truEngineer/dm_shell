@@ -66,30 +66,28 @@ You can also use **$()** to nest expressions: `mv "$f" $(printf "%03d.extension"
 
 ## Finding specific files and data inside files
 
+🐧|🍏:
+
 Find files modified on a specific date range.
 
-🐧|🍏:
 ```bash
 find . -type f -newermt "2022-12-01" ! -newermt "2023-01-01"
 ```
 
 Find ASCII files and extract IP addresses.
 
-🐧|🍏:
 ```bash
 find . -type f -exec grep -Iq . {} \; -exec grep -oE "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" {} /dev/null \;
 ```
 
 Search recursively to find a word or phrase in certain file types, such as C code.
 
-🐧|🍏:
 ```bash
 find . -name "*.[ch]" -exec  grep -i -H "search phrase" {} \;
 ```
 
 Find files in directory containing text.
 
-🐧|🍏:
 ```bash
 grep -lir "some text" ./directory/*
 ```
