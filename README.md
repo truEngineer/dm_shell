@@ -92,6 +92,25 @@ Find files in directory containing text.
 grep -lir "some text" ./directory/*
 ```
 
+## Download Files
+
+**Download Google Drive Files using `wget`.**
+
+Files less than 100MB are regarded as small files where as files greater than 100MB are regarded as large files.
+
+For large file run the following command with necessary changes in `FILEID` and `FILENAME`.
+
+🐧|🍏:
+```bash
+!wget --load-cookies /tmp/cookies.txt \
+"https://docs.google.com/uc?export=download&confirm=\
+$(wget --quiet --save-cookies /tmp/cookies.txt \
+--keep-session-cookies --no-check-certificate \
+'https://docs.google.com/uc?export=download&id=FILEID' \
+-O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=FILEID" \
+-O FILENAME && rm -rf /tmp/cookies.txt
+```
+
 ## Enter the matrix
 
 🐧|🍏:
