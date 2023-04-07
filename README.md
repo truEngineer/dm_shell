@@ -94,11 +94,11 @@ grep -lir "some text" ./directory/*
 
 ## Download Files
 
-**Download Google Drive Files using `wget`.**
+**Download Google Drive Files using `wget`**
 
 Files smaller than 100 MB are considered small files, while files larger than 100 MB are considered large.
 
-Copy the link to share the file `https://drive.google.com/file/d/1UibyVC_C2hoT_XEw15gPEwPW4yFyJFeOEA/view?usp=sharing`.
+Copy the link to share the file `https://drive.google.com/file/d/1UibyVC_C2hoT_XEw15gPEwPW4yFyJFeOEA/view?usp=sharing` (anyone who has a link can view).
 
 Extract `FILEID` part `1UibyVC_C2hoT_XEw15gPEwPW4yFyJFeOEA`.
 
