@@ -96,13 +96,24 @@ grep -lir "some text" ./directory/*
 
 **Download Google Drive Files using `wget`.**
 
-Files less than 100MB are regarded as small files where as files greater than 100MB are regarded as large files.
+Files smaller than 100 MB are considered small files, while files larger than 100 MB are considered large.
 
-For large file run the following command with necessary changes in `FILEID` and `FILENAME`.
+Copy the link to share the file `https://drive.google.com/file/d/1UibyVC_C2hoT_XEw15gPEwPW4yFyJFeOEA/view?usp=sharing`.
+
+Extract `FILEID` part `1UibyVC_C2hoT_XEw15gPEwPW4yFyJFeOEA`.
+
+For a small file, run the following command on your terminal.
 
 🐧|🍏:
 ```bash
-!wget --load-cookies /tmp/cookies.txt \
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=FILEID' -O FILENAME
+```
+
+For a large file, run the following command, making the necessary changes to `FILEID` and `FILENAME`.
+
+🐧|🍏:
+```bash
+wget --load-cookies /tmp/cookies.txt \
 "https://docs.google.com/uc?export=download&confirm=\
 $(wget --quiet --save-cookies /tmp/cookies.txt \
 --keep-session-cookies --no-check-certificate \
