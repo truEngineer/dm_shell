@@ -35,8 +35,7 @@ md5sum * | sort | awk 'BEGIN{lasthash = ""} $1 == lasthash {print $2} {lasthash 
   find . -name "*.jpeg" -print0 | xargs -0 md5sum | sort | awk 'BEGIN{lasthash = ""} $1 == lasthash {print $2} {lasthash = $1}' | xargs rm
   ```
   
-  As noted above, the for loop approach is slower but more maintainable because it can adapt to more complex scenarios.
-  
+  As noted above, the `for` loop approach is slower but more maintainable because it can adapt to more complex scenarios.
 </details>
 
 🍏:
@@ -74,11 +73,14 @@ You can also use **$()** to nest expressions: `mv "$f" $(printf "%03d.extension"
 
 <details>
   <summary><b>$f</b> instead <b>"$f"</b>?</summary>
-  <b>$f</b> instead of <b>"$f"</b> fails when filename contains spaces!
+  
+  **$f** instead of **"$f"** fails when filename contains spaces!
+  
   The main difference is that the quoted version is not subject to field splitting by the shell.
-  With double quotes the outcome of the command expansion would be fed as one parameter to the source command. 
-  Without quotes it would be broken up into multiple parameters, depending on the value of IFS (internal field separator) which contains space, TAB and newline by default.
+  With double quotes the outcome of the command expansion would be fed as one parameter to the source command.
+  Without quotes it would be broken up into multiple parameters, depending on the value of `IFS` (internal field separator) which contains space, `TAB` and newline by default.
   If the directory name does not contain such spaces then field splitting does not occur.
+  
   As a rule of thumb, it is best to use double quotes with command substitutions and variable expansions.
 </details>
 
