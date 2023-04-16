@@ -21,6 +21,24 @@ The filenames `awk` spits out are fed to `rm` with `xargs`, which basically call
 ```bash
 md5sum * | sort | awk 'BEGIN{lasthash = ""} $1 == lasthash {print $2} {lasthash = $1}' | xargs rm
 ```
+
+<details>
+  <summary>Argument list too long</summary>
+  
+  #### Colab Issue
+  
+  It's a kernel limitation on the size of the command line argument. This is a system issue, related to `execve` and `ARG_MAX` constant.
+  Basically, the expansion produce a command (with its parameters) that exceeds the `ARG_MAX` limit.
+  You can use a `for` loop instead, or the `find -exec` solution, which is much faster than a `for` loop.
+  
+  ```bash
+  find . -name "*.jpeg" -print0 | xargs -0 md5sum | sort | awk 'BEGIN{lasthash = ""} $1 == lasthash {print $2} {lasthash = $1}' | xargs rm
+  ```
+  
+  As noted above, the for loop approach is slower but more maintainable because it can adapt to more complex scenarios.
+  
+</details>
+
 🍏:
 ```bash
 md5 -r * | sort | awk 'BEGIN{lasthash = ""} $1 == lasthash {print $2} {lasthash = $1}' | xargs rm
