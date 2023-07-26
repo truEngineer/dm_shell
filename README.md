@@ -142,6 +142,29 @@ $(wget --quiet --save-cookies /tmp/cookies.txt \
 -O FILENAME && rm -rf /tmp/cookies.txt
 ```
 
+## Process CSV files
+
+Print the first column of a CSV file.
+
+🐧|🍏:
+```bash
+awk -F, '{print $1}' file.csv
+```
+
+Print the first and third columns of a CSV file.
+
+🐧|🍏:
+```bash
+awk -F, '{print $1 "," $3}' file.csv
+```
+
+Print only the lines of a CSV file that contain a specific string.
+
+🐧|🍏:
+```bash
+grep "string_of_interest" file.csv
+```
+
 ## Enter the matrix
 
 🐧|🍏:
