@@ -165,6 +165,33 @@ Print only the lines of a CSV file that contain a specific string.
 grep "string_of_interest" file.csv
 ```
 
+Sort a CSV file based on the values in the second column.
+
+🐧|🍏:
+```bash
+sort -t, -k2 file.csv
+```
+Remove the first row of a CSV file (the header row).
+
+🐧|🍏:
+```bash
+tail -n +2 file.csv
+```
+
+Remove duplicates from a CSV file based on the values in the first column.
+
+🐧|🍏:
+```bash
+awk -F, '!seen[$1]++' file.csv
+```
+
+Calculate the sum of the values in the third column of a CSV file.
+
+🐧|🍏:
+```bash
+awk -F, '{sum+=$3} END {print sum}' file.csv
+```
+
 ## Enter the matrix
 
 🐧|🍏:
