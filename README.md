@@ -192,6 +192,20 @@ Calculate the sum of the values in the third column of a CSV file.
 awk -F, '{sum+=$3} END {print sum}' file.csv
 ```
 
+Convert a CSV file to a JSON array.
+
+🐧|🍏:
+```bash
+jq -R -r 'split(",") | {name:.[0],age:.[1]}' file.csv
+```
+
+Convert a CSV file to a SQL INSERT statement.
+
+🐧|🍏:
+```bash
+awk -F, '{printf "INSERT INTO table VALUES (\"%s\", \"%s\", \"%s\");\n", $1, $2, $3}' file.csv
+```
+
 ## Enter the matrix
 
 🐧|🍏:
