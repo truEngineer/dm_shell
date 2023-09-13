@@ -142,6 +142,49 @@ $(wget --quiet --save-cookies /tmp/cookies.txt \
 -O FILENAME && rm -rf /tmp/cookies.txt
 ```
 
+**Download Google Drive Files using `gdown`**
+
+Download a large file from Google Drive.
+If you use `curl/wget`, it fails with a large file because of the security warning from Google Drive. 
+[Gdown](https://github.com/wkentaro/gdown) supports downloading from Google Drive folders (max 50 files per folder).
+
+Installation.
+
+```bash
+$ pip install gdown
+```
+
+Usage from command line.
+
+```bash
+$ gdown --help
+usage: gdown [-h] [-V] [-O OUTPUT] [-q] [--fuzzy] [--id] [--proxy PROXY]
+             [--speed SPEED] [--no-cookies] [--no-check-certificate]
+             [--continue] [--folder] [--remaining-ok]
+             url_or_id
+
+$ # a large file (~500MB)
+$ gdown https://drive.google.com/uc?id=1l_5RK28JRL19wpT22B-DY9We3TVXnnQQ
+$ md5sum fcn8s_from_caffe.npz
+256c2a8235c1c65e62e48d3284fbd384
+
+$ # same as the above but with the file ID
+$ gdown 1l_5RK28JRL19wpT22B-DY9We3TVXnnQQ
+
+$ # a small file
+$ gdown https://drive.google.com/uc?id=0B9P1L--7Wd2vU3VUVlFnbTgtS2c
+$ cat spam.txt
+spam
+
+$ # download with fuzzy extraction of a file ID
+$ gdown --fuzzy 'https://drive.google.com/file/d/0B9P1L--7Wd2vU3VUVlFnbTgtS2c/view?usp=sharing&resourcekey=0-WWs_XOSctfaY_0-sJBKRSQ'
+$ cat spam.txt
+spam
+
+$ # a folder
+$ gdown https://drive.google.com/drive/folders/15uNXeRBIhVvZJIhL4yTw4IsStMhUaaxl -O /tmp/folder --folder
+```
+
 ## Process CSV files
 
 Print the first column of a CSV file.
